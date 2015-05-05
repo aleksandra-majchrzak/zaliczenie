@@ -28,18 +28,8 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   %body
-    .navbar.navbar-default.navbar-static-top
-      .container
-        %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{:href => "#"} Project
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Link1", "/path1"
-            %li= link_to "Link2", "/path2"
-            %li= link_to "Link3", "/path3"
+    =render 'layouts/header'
+    
     .container
       .row
         .col-lg-9

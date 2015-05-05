@@ -1,0 +1,9 @@
+%p
+  - if user_signed_in?
+    Hello,
+    \#{current_user.full_name}
+    you are
+    \#{current_user.admin ? "admin" : "user"}
+    \#{link_to "Sign out", destroy_user_session_path, method: :delete}
+  - else
+    = link_to "Sign in", new_user_session_path
