@@ -1,7 +1,6 @@
-%p
-  - if user_signed_in?
-    Hello,
-    \#{current_user.full_name}
-    \#{link_to "Sign out", destroy_user_session_path, method: :delete}
-  - else
-    = link_to "Sign in", new_user_session_path
+
+- if user_signed_in?
+  %li= "Hello," #{current_user.full_name}
+  %li= link_to "Sign out", destroy_user_session_path, method: :delete
+- else
+  %li= link_to "Sign in", new_user_session_path

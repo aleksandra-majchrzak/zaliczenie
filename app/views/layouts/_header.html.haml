@@ -11,4 +11,6 @@
         / -if can? :create, @article
         %li= link_to "New project", new_project_path
       %ul.nav.navbar-nav.navbar-right
-        %li= render 'layouts/sign_up_section'
+        -if user_signed_in?
+          %li= link_to "My profile", "/"
+        = render 'layouts/sign_up_section'
