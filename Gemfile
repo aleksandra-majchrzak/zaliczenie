@@ -44,5 +44,6 @@ group :development, :test do
   gem 'devise'
   gem 'twitter-bootstrap-rails'
   gem "haml-rails", "~> 0.9"
+  gem 'cancancan', '~> 1.10'
 end
 
