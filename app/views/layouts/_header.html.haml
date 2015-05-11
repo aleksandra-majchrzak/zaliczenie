@@ -8,6 +8,7 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
         %li= link_to "My projects", projects_path
+        / -if can? :create, @article
         %li= link_to "New project", new_project_path
       %ul.nav.navbar-nav.navbar-right
         %li= render 'layouts/sign_up_section'
