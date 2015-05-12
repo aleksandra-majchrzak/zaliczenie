@@ -1,0 +1,10 @@
+%div{:style => "text-align: center"}
+  %p
+    %h2= @project.name
+  %p
+    = @project.description
+    %br
+  %p
+  - if can? :update, Project
+    = link_to "Edit", edit_project_path(@project)
+    = link_to "Add ticket", new_project_ticket_path(@project)
