@@ -47,6 +47,11 @@ class TicketsController < ApplicationController
     end
   end
   
+  def list_all
+    @projects=Project.all
+    #@ticket=
+  end
+  
   private
   def ticket_params
     params.require(:ticket).permit(:name, :description, :priority, :difficulty, :status)
