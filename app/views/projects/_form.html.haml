@@ -1,5 +1,5 @@
 = simple_form_for(@project, html: { class: 'form-horizontal' }) do |f|
 
     = f.input :name, label: 'Project name'
-    = f.input :name, as: :text, label: 'Project description'
+    = f.input :description, as: :text, label: 'Project description'
     = f.button :submit
