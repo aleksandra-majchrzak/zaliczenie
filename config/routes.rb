@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'profile/show'
-  get 'profile/edit'
 
   devise_for :users
   get 'welcome/index'
