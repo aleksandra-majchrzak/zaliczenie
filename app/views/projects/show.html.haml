@@ -8,3 +8,6 @@
   - if can? :update, Project
     = link_to "Edit", edit_project_path(@project)
     = link_to "Add ticket", new_project_ticket_path(@project)
+    = link_to "View tickets", project_tickets_path(@project)
+    
+= link_to "Back", :back

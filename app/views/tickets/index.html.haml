@@ -1,23 +1,20 @@
-%h1 My projects
+%h1 My tickets for project #{@project.name}
 
-%h3
+-@tickets.length
   
 .container-fluid
   .row
-    - @projects.reverse.each do |project|
+    - @tickets.each do |ticket|
       .col-xs-12.col-sm-6.col-md-4
-        %h2= link_to project.name, project_path(project)
-        %h6.small 
-          written at: 
-          = project.created_at
+        = link_to ticket.name, project_ticket_path(@project, ticket)
           
         %tr
           %td
             - if can? :update, @project
-              = link_to "Edit", edit_project_path(project)
+              = link_to "Edit", edit_project_ticket_path(@project, ticket)
           %td{:style => "padding: 0 5px"}
             - if can? :destroy, Project
-              = link_to "Delete", project_path(project), |
+              = link_to "Delete", project_ticket_path(@project, ticket), |
                 method: :delete,                         |
                 data: {confirm: 'Are you sure?'}         |
 %br/

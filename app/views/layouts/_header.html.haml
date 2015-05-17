@@ -11,6 +11,6 @@
           %li= link_to "My projects", projects_path
           / -if can? :create, @article
           %li= link_to "New project", new_project_path
-          %li= link_to "My tickets", project_tickets_path(Project.all)
+          %li= link_to "My tickets", tickets_list_all_path
       %ul.nav.navbar-nav.navbar-right
         = render 'layouts/sign_up_section'

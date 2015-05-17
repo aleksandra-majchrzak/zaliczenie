@@ -1,8 +1,8 @@
-= simple_form_for([@project, @project.tickets.build], html:{class: 'form-horizontal'}) do |f|
+= simple_form_for([@project, @ticket], html:{class: 'form-horizontal'}) do |f|
 
-  =f.input :name, label: 'Ticket name'
-  =f.input :description, label: 'Ticket description'
-  =f.input :priority, collection: 1..5, label: 'Priority'
-  =f.input :difficulty, collection: 1..5, label: 'Difficulty'
-  =f.input :status, collection: (1..3), label: 'Status'
-  =f.button :submit
+    =f.input :name, label: 'Ticket name'
+    =f.input :description, label: 'Ticket description'
+    =f.input :priority, collection: 1..5, label: 'Priority', :include_blank => false
+    =f.input :difficulty, collection: 1..5, label: 'Difficulty', :include_blank => false
+    =f.input :status, :collection => @status_ar, label: 'Status', :include_blank => false
+    =f.button :submit

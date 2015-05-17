@@ -1,0 +1,16 @@
+%div{:style => "text-align: center"}
+  %p
+    %h2= @ticket.name
+  %p
+    = @ticket.description
+    %br
+  %p
+  - if can? :update, Ticket
+    = link_to "Edit", edit_project_ticket_path(@project, @ticket)
+
+  - if can? :destroy, Ticket
+    = link_to "Delete", project_ticket_path(@project, @ticket), |
+    method: :delete,                         |
+    data: {confirm: 'Are you sure?'}
+    
+= link_to "Back", :back

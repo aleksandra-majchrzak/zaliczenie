@@ -62,5 +62,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  get "ticket/list_all"
+  get "tickets/list_all"
 end

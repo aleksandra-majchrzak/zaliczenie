@@ -1,20 +1,22 @@
 class TicketsController < ApplicationController
   def index
       @project= Project.find(params[:project_id])
-      @ticket=@project.tickets.all
+      @tickets=@project.tickets.all
   end
   
   def new
     @project=Project.find(params[:project_id])
-    @ticket=@project.tickets
+    @ticket=@project.tickets.build
+    @status_ar={'active'=> :active, 'closed'=> :closed, 'cancelled'=> :cancelled}
   end
   
   def create
     @project= Project.find(params[:project_id])
-    @ticket = @project.tickets.new(ticket_params)
+    @ticket = @project.tickets.build(ticket_params)
+    @status_ar={'active'=> :active, 'closed'=> :closed, 'cancelled'=> :cancelled}
  
     if @ticket.save
-      redirect_to @ticket
+      redirect_to project_ticket_path(@project, @ticket)
     else
       render 'new'
     end
@@ -34,22 +36,24 @@ class TicketsController < ApplicationController
   end
   
   def edit
-    @ticket=Ticket.find(params[:id])
+    @project= Project.find(params[:project_id])
+    @ticket=@project.tickets.find(params[:id])
+    @status_ar={'active'=> :active, 'closed'=> :closed, 'cancelled'=> :cancelled}
   end
   
   def update
-    @ticket = Ticket.find(params[:id])
+    @project= Project.find(params[:project_id])
+    @ticket=@project.tickets.find(params[:id])
  
     if @ticket.update(ticket_params)
-      redirect_to @ticket
+      redirect_to project_ticket_path(@project, @ticket)
     else
       render 'edit'
     end
   end
   
   def list_all
-    @projects=Project.all
-    #@ticket=
+    @projects=current_user.projects.all
   end
   
   private
