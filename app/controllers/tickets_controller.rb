@@ -1,4 +1,7 @@
 class TicketsController < ApplicationController
+  before_filter :authenticate_user!, except:[:index, :show]
+  load_and_authorize_resource
+  
   def index
       @project= Project.find(params[:project_id])
       @tickets=@project.tickets.all
