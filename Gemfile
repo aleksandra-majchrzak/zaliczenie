@@ -47,5 +47,6 @@ group :development, :test do
   gem 'cancancan', '~> 1.10'
   gem 'simple_form'
   gem "cookie_alert"
+  gem "paperclip", "~> 4.2"
 end
 
