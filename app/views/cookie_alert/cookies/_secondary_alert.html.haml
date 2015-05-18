@@ -1,0 +1,9 @@
+#cookie_alert.secondary-alert
+  #cookie_alert_message
+    #cookie_alert_title
+      Cookies:
+    #cookie_alert_text{:style => "display:none;"}
+      = link_to "X", project_cookie_alert_path(1), id: 'cookie_alert_close', remote: true
+      We use cookies to help personalise and improve your web experience.
+      By using our website you consent to our use of cookies, some of which may have already been set on your device.
+      View our Cookie Policy to learn more.

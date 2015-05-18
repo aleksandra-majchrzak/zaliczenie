@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   resources :projects do
     resources :tickets
+    
+  mount CookieAlert::Engine => "/cookie-alert"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

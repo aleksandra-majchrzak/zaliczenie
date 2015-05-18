@@ -46,5 +46,6 @@ group :development, :test do
   gem "haml-rails", "~> 0.9"
   gem 'cancancan', '~> 1.10'
   gem 'simple_form'
+  gem "cookie_alert"
 end
 

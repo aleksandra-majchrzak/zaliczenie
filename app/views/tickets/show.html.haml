@@ -5,6 +5,9 @@
     = @ticket.description
     %br
   %p
+    %h4 priotity: #{@ticket.priority}
+    %h4 status: #{@ticket.status}
+  %p
   - if can? :update, Ticket
     = link_to "Edit", edit_project_ticket_path(@project, @ticket)
 

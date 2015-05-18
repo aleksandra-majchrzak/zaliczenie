@@ -52,6 +52,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    cookie_alert (0.0.5)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -182,6 +183,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
+  cookie_alert
   devise
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
