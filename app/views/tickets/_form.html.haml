@@ -8,7 +8,8 @@
     -if @ticket.single_attachment_content_type =~ /image\/*/
       =image_tag @ticket.single_attachment.url() #tu powinna byc jakas inna funkcja
     -else
-      ="here will be a link"
+      =link_to "jol" @ticket.single_atachment.url()
+      =@ticket.single_attachment_content_type
   -else
     =f.input :single_attachment, label: 'Attachment'
   =f.input :single_attachment_file_name, label: 'Attachment name'

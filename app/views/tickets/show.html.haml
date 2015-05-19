@@ -19,7 +19,11 @@
   %br
   %br
   <!--%strong Single_attachment: -->
-  =image_tag @ticket.single_attachment.url() #tu powinna byc jakas inna funkcja
+  -if @ticket.single_attachment.present?
+    -if @ticket.single_attachment_content_type =~ /image\/*/
+      =image_tag @ticket.single_attachment.url()
+    -else
+      =link_to "jol", @ticket.single_attachment.url()
   
     
 = link_to "Back", :back
