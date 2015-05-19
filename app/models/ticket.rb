@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
   belongs_to :project
+  has_and_belongs_to_many :users
   enum status: [ :active, :closed, :cancelled ]
   validates :name, presence: true
   validates :description, presence: true
@@ -11,5 +12,7 @@ class Ticket < ActiveRecord::Base
              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
              "application/msword", 
              "application/vnd.openxmlformats-officedocument.wordprocessingml.document",]
+  validates_attachment_file_name :single_attachment, :matches => [/gif\Z/, /png\Z/, /jpe?g\Z/, /doc\Z/, /xls\Z/,/ppt\Z/]
+  validates_with AttachmentSizeValidator, :attributes => :single_attachment, :less_than => 3.megabytes
 
 end
