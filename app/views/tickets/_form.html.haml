@@ -1,10 +1,15 @@
 = simple_form_for([@project, @ticket], html:{multipart: true}) do |f|
-
-    =f.input :name, label: 'Ticket name'
-    =f.input :description, label: 'Ticket description'
-    =f.input :priority, collection: 1..5, label: 'Priority', :include_blank => false
-    =f.input :difficulty, collection: 1..5, label: 'Difficulty', :include_blank => false
-    =f.input :status, :collection => @status_ar, label: 'Status', :include_blank => false    
-    =f.input :single_attachment, label: 'Attachment', as: :file
-    =f.input :single_attachment_file_name, label: 'Attachment name'
-    =f.button :submit
+  =f.input :name, label: 'Ticket name'
+  =f.input :description, label: 'Ticket description'
+  =f.input :priority, collection: 1..5, label: 'Priority', :include_blank => false
+  =f.input :difficulty, collection: 1..5, label: 'Difficulty', :include_blank => false
+  =f.input :status, :collection => @status_ar, label: 'Status', :include_blank => false        
+  -if @ticket.single_attachment.present?
+    -if @ticket.single_attachment_content_type =~ /image\/*/
+      =image_tag @ticket.single_attachment.url() #tu powinna byc jakas inna funkcja
+    -else
+      ="here will be a link"
+  -else
+    =f.input :single_attachment, label: 'Attachment'
+  =f.input :single_attachment_file_name, label: 'Attachment name'
+  =f.button :submit

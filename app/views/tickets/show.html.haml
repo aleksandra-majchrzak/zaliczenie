@@ -16,4 +16,10 @@
     method: :delete,                         |
     data: {confirm: 'Are you sure?'}
     
+  %br
+  %br
+  <!--%strong Single_attachment: -->
+  =image_tag @ticket.single_attachment.url() #tu powinna byc jakas inna funkcja
+  
+    
 = link_to "Back", :back

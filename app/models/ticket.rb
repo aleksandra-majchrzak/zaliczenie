@@ -14,5 +14,9 @@ class Ticket < ActiveRecord::Base
              "application/vnd.openxmlformats-officedocument.wordprocessingml.document",]
   validates_attachment_file_name :single_attachment, :matches => [/gif\Z/, /png\Z/, /jpe?g\Z/, /doc\Z/, /xls\Z/,/ppt\Z/]
   validates_with AttachmentSizeValidator, :attributes => :single_attachment, :less_than => 3.megabytes
+  
+  def attachment_type
+    single_attachment_content_type
+  end
 
 end
