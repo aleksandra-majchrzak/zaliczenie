@@ -15,8 +15,18 @@ class Ticket < ActiveRecord::Base
   validates_attachment_file_name :single_attachment, :matches => [/gif\Z/, /png\Z/, /jpe?g\Z/, /docx?\Z/, /xls\Z/,/ppt\Z/]
   validates_with AttachmentSizeValidator, :attributes => :single_attachment, :less_than => 3.megabytes
   
+  attr_accessor :remove_single_attachment 
+
+  before_save :delete_single_attachment, if: ->{remove_single_attachment == '1' && !single_attachment_updated_at_changed?} 
+
   def attachment_type
     single_attachment_content_type
   end
-
+  
+  private
+  
+  def delete_single_attachment
+    self.single_attachment =nil 
+    self.inner_attachment_name=nil
+  end
 end
