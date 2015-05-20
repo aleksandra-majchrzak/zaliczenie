@@ -3,15 +3,15 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @projects=current_user.owned_projects
+    @projects=current_user.projects
   end
   
   def new
-    @project=current_user.owned_projects.build()
+    @project=current_user.projects.build()
   end
   
   def create
-    @project = current_user.owned_projects.build(project_params)
+    @project = current_user.projects.build(project_params)
  
     if @project.save
       redirect_to @project
