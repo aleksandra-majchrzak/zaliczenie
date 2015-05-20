@@ -48,5 +48,6 @@ group :development, :test do
   gem 'simple_form'
   gem "cookie_alert"
   gem "paperclip", "~> 4.2"
+  gem 'devise_invitable', '~> 1.3.4'
 end
 
