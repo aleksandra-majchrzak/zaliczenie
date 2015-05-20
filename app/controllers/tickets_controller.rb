@@ -56,7 +56,8 @@ class TicketsController < ApplicationController
   end
   
   def list_all
-    @projects=current_user.projects.all
+    @projects=current_user.owned_projects.all
+    @projects << curren_user.member_projects.all
   end
   
   private
