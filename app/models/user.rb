@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :projects
+  has_many :owned_projects, :class_name => "Project"
   has_and_belongs_to_many :tickets
   
   # Include default devise modules. Others available are:
