@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519133308) do
+ActiveRecord::Schema.define(version: 20150520193759) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20150519133308) do
 
   add_index "tickets", ["project_id"], name: "index_tickets_on_project_id"
 
+  create_table "tickets_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ticket_id"
+  end
+
+  add_index "tickets_users", ["ticket_id"], name: "index_tickets_users_on_ticket_id"
+  add_index "tickets_users", ["user_id"], name: "index_tickets_users_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -60,13 +68,5 @@ ActiveRecord::Schema.define(version: 20150519133308) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "users_tickets", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ticket_id"
-  end
-
-  add_index "users_tickets", ["ticket_id"], name: "index_users_tickets_on_ticket_id"
-  add_index "users_tickets", ["user_id"], name: "index_users_tickets_on_user_id"
 
 end
