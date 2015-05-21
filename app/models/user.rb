@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :owned_projects, :class_name => "Project"
+  has_many :owned_projects, :class_name => "Project", dependent: :destroy
   has_and_belongs_to_many :tickets
   has_and_belongs_to_many :member_projects, :class_name =>"Project", :foreign_key =>"member_id", :association_foreign_key => "member_project_id"
   
