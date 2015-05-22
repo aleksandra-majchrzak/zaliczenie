@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :invitations => 'users/invitations' }
   get 'welcome/index'
   
   resources :projects do

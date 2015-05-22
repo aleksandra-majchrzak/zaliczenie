@@ -1,11 +1,14 @@
 <h2><%= t "devise.invitations.new.header" %></h2>
+<%= @project.inspect %>
+
 
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
   <%= devise_error_messages! %>
 
 <% resource.class.invite_key_fields.each do |field| -%>
-  <%= f.input field %>
+  <%= f.input field %>  
 <% end -%>
-
+  <%=f.hidden_field :project_id, :value => @project.id %>
+  
 <%= f.submit t("devise.invitations.new.submit_button") %>
 <% end %>
