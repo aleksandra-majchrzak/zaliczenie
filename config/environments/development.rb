@@ -31,17 +31,8 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
   config.action_mailer.default_url_options = { host: 'http://first-box-201338.euw1-2.nitrousbox.com'}
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = false
 
-  ActionMailer::Base.smtp_settings = {
-                    :address        => "smtp.gmail.com",
-                    :port           => 587,
-                    :authentication => :plain,
-                    :user_name      => "coproject.example@gmail.com",
-                    :password       => "exampleruby",
-                    :openssl_verify_mode  => 'none'
-  } 
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.

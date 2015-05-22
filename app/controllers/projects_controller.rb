@@ -45,13 +45,6 @@ class ProjectsController < ApplicationController
     end
   end
   
-  #i guess it shouldn't be here
-  def invite_user
-    @user = User.invite!({:email => params[:user][:email]}, current_user )
-    render :json => @user
-    #redirect_to "/"
-  end
-  
   private
   def project_params
     params.require(:project).permit(:name, :description)

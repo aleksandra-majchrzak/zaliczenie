@@ -65,5 +65,4 @@ Rails.application.routes.draw do
   #   end
   
   get "tickets/list_all"
-  post "/projects/invite_user"
 end
