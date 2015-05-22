@@ -31,7 +31,9 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
   config.action_mailer.default_url_options = { host: 'http://first-box-201338.euw1-2.nitrousbox.com'}
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
 
   # Adds additional error checking when serving assets at runtime.
