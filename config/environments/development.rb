@@ -32,6 +32,7 @@ Rails.application.configure do
   config.assets.digest = true
   config.action_mailer.default_url_options = { host: 'http://first-box-201338.euw1-2.nitrousbox.com'}
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
 
   ActionMailer::Base.smtp_settings = {
                     :address        => "smtp.gmail.com",
