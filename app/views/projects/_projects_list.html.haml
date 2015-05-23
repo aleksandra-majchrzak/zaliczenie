@@ -7,10 +7,10 @@
           
     %tr
       %td
-        - if can? :update, @project
+        - if can? :update, project
           = link_to "Edit", edit_project_path(project)
       %td{:style => "padding: 0 5px"}
-        - if can? :destroy, Project
+        - if can? :destroy, project
           = link_to "Delete", project_path(project), |
             method: :delete,                         |
             data: {confirm: 'Are you sure?'}         |

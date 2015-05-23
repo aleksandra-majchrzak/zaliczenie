@@ -8,10 +8,10 @@
     %h4 priotity: #{@ticket.priority}
     %h4 status: #{@ticket.status}
   %p
-  - if can? :update, Ticket
+  - if can? :update, @ticket
     = link_to "Edit", edit_project_ticket_path(@project, @ticket)
 
-  - if can? :destroy, Ticket
+  - if can? :destroy, @ticket
     = link_to "Delete", project_ticket_path(@project, @ticket), |
     method: :delete,                         |
     data: {confirm: 'Are you sure?'}

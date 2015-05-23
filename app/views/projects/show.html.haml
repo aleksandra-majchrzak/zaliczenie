@@ -5,7 +5,7 @@
     = @project.description
     %br
   %p
-  - if can? :update, Project
+  - if can? :update, @project
     = link_to "Edit", edit_project_path(@project)
     = link_to "Add ticket", new_project_ticket_path(@project)    
     = link_to "Add members", new_user_invitation_path(:project => @project.id)
