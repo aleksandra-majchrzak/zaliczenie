@@ -1,0 +1,13 @@
+- @tickets.each do |ticket|
+  .col-xs-12.col-sm-6.col-md-4
+    = link_to ticket.name, project_ticket_path(@project, ticket)
+          
+    %tr
+      %td
+        - if can? :update, @project
+          = link_to "Edit", edit_project_ticket_path(@project, ticket)
+      %td{:style => "padding: 0 5px"}
+        - if can? :destroy, Project
+          = link_to "Delete", project_ticket_path(@project, ticket), |
+            method: :delete,                         |
+            data: {confirm: 'Are you sure?'}         |
