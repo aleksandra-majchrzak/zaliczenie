@@ -18,3 +18,4 @@
 //= require cookie_alert
 //= require jquery-ui
 //= require jquery-ui/autocomplete
+//= require autocomplete-rails

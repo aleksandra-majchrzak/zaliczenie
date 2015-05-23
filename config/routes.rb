@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :tickets
     
   mount CookieAlert::Engine => "/cookie-alert"
+    
+  resources :projects do
+    get :autocomplete_user_email, :on => :collection
   end
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

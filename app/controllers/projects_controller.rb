@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!, except:[:index, :show]
+  before_filter :authenticate_user!
   load_and_authorize_resource
+  
+  autocomplete :user, :email, :full => true
   
   def index
     @owned_projects=current_user.owned_projects
@@ -48,7 +50,7 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
-    params.require(:project).permit(:name, :description, :member_ids =>[])
+    params.require(:project).permit(:name, :description, :member_id)
   end
   
 end
