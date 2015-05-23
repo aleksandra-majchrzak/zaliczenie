@@ -17,6 +17,14 @@
     data: {confirm: 'Are you sure?'}
     
   %br
+  %p
+    -if can? :update, Ticket
+      -members={}
+      -@project.members.each {|m| members.store(m.email, m.id)}
+      = simple_form_for [@project, @ticket] do |f|
+        = f.association :users, collection: members, as: :check_boxes
+        = f.submit 
+    
   %br
   <!--%strong Single_attachment: -->
   -if @ticket.single_attachment.present?
