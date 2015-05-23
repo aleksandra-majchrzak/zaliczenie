@@ -49,5 +49,6 @@ group :development, :test do
   gem "cookie_alert"
   gem "paperclip", "~> 4.2"
   gem 'devise_invitable', '~> 1.3.4'
+  gem 'jquery-ui-rails'
 end
 

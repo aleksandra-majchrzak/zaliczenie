@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require_tree .
 //= require cookie_alert
+//= require jquery-ui
+//= require jquery-ui/autocomplete
