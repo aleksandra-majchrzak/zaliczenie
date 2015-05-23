@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @projects=current_user.owned_projects
+    @owned_projects=current_user.owned_projects
+    @member_projects=current_user.member_projects
   end
   
   def new

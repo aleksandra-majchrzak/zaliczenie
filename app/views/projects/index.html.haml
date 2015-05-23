@@ -4,21 +4,14 @@
   
 .container-fluid
   .row
-    - @projects.reverse.each do |project|
-      .col-xs-12.col-sm-6.col-md-4
-        %h2= link_to project.name, project_path(project)
-        %h6.small 
-          written at: 
-          = project.created_at
-          
-        %tr
-          %td
-            - if can? :update, @project
-              = link_to "Edit", edit_project_path(project)
-          %td{:style => "padding: 0 5px"}
-            - if can? :destroy, Project
-              = link_to "Delete", project_path(project), |
-                method: :delete,                         |
-                data: {confirm: 'Are you sure?'}         |
+    -@projects=@owned_projects
+    %div{:style => "text-align: center"}
+      My owned projects:
+    =render 'projects_list'
+  .row
+    -@projects=@member_projects
+    %div{:style => "text-align: center"}
+      My member projects:
+    =render 'projects_list'
 %br/
 = link_to "Back", :back
