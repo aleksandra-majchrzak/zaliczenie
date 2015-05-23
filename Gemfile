@@ -51,5 +51,6 @@ group :development, :test do
   gem 'devise_invitable', '~> 1.3.4'
   gem 'jquery-ui-rails'
   gem 'rails4-autocomplete'
+  gem "gritter", "1.1.0"
 end
 

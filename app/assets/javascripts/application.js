@@ -19,3 +19,4 @@
 //= require jquery-ui
 //= require jquery-ui/autocomplete
 //= require autocomplete-rails
+//= require gritter
