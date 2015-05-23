@@ -3,7 +3,10 @@
   =f.input :description, label: 'Ticket description'
   =f.input :priority, collection: 1..5, label: 'Priority', :include_blank => false
   =f.input :difficulty, collection: 1..5, label: 'Difficulty', :include_blank => false
-  =f.input :status, :collection => @status_ar, label: 'Status', :include_blank => false        
+  =f.input :status, :collection => @status_ar, label: 'Status', :include_blank => false 
+  -members={}
+  -@project.members.each {|m| members.store(m.email, m.id)}
+  = f.association :users, collection: members, as: :check_boxes
   -if @ticket.single_attachment.present?
     -if @ticket.single_attachment_content_type =~ /image\/*/
       =image_tag @ticket.single_attachment.url() #tu powinna byc jakas inna funkcja
