@@ -20,6 +20,7 @@ class Users::InvitationsController < Devise::InvitationsController
       respond_with resource, :location => after_invite_path_for(current_inviter)
       self.resource.member_projects<<Project.find(params[:user][:project_id])
     else
+      @project=Project.find(params[:user][:project_id])
       respond_with_navigational(resource) { render :new }
     end
   end
