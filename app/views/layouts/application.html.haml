@@ -28,25 +28,16 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   %body
-    =render 'layouts/header'
-    
+    = render 'layouts/header'   
     .container
       .row
         .col-lg-9
           = bootstrap_flash
           = yield
           = display_cookie_alert
-        .col-lg-3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link1", "/path1"
-              %li= link_to "Link2", "/path2"
-              %li= link_to "Link3", "/path3"
-          / /.well
         / /span
       / /row
-      %footer
+    %footer.footer
+      .container
         %p © Company 2015
     / /container
