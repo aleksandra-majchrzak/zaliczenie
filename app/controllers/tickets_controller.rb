@@ -56,6 +56,7 @@ class TicketsController < ApplicationController
   end
   
   def list_all
+    #tu powinny byc wszyskie moje tickety, nie owned
     @projects=current_user.owned_projects.all
     #@projects << curren_user.member_projects.all
   end

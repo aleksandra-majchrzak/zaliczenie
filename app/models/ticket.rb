@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
   belongs_to :project
+  has_many :assigments
   has_many :users, through: :assigments
   enum status: [ :active, :closed, :cancelled ]
   validates :name, presence: true
