@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520203642) do
+ActiveRecord::Schema.define(version: 20150524004648) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -48,14 +48,6 @@ ActiveRecord::Schema.define(version: 20150520203642) do
   end
 
   add_index "tickets", ["project_id"], name: "index_tickets_on_project_id"
-
-  create_table "tickets_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ticket_id"
-  end
-
-  add_index "tickets_users", ["ticket_id"], name: "index_tickets_users_on_ticket_id"
-  add_index "tickets_users", ["user_id"], name: "index_tickets_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
