@@ -9,8 +9,12 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
    def create
      super
-     #if current_user.signed_in?
-     #  @new_tickets=Ticket.where(:id => Ticket.select())
+     @new_assignments=current_user.assignments.where('created_at > :last_signed_in', :last_signed_in => current_user.last_sign_in_at)
+     if !@new_assignments.empty?
+       @new_tickets=[]
+       @new_tickets<<@new_assignments.each{|a| a.ticket.name}
+       gflash :now, :notice => "You have got new tickets. Check them in 'My Tickets' section."
+     end
    end
 
   # DELETE /resource/sign_out
