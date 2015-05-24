@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   
   def new
     @project=current_user.owned_projects.build()
+    @to_edit=false
   end
   
   def create
@@ -25,6 +26,7 @@ class ProjectsController < ApplicationController
   
   def show
     @project=Project.find(params[:id])
+    @to_edit=false
   end
   
   def destroy
@@ -36,6 +38,7 @@ class ProjectsController < ApplicationController
   
   def edit
     @project=Project.find(params[:id])
+    @to_edit=true
   end
   
   def update
