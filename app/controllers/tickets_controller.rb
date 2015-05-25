@@ -63,9 +63,9 @@ class TicketsController < ApplicationController
   end
   
   def list_all
-    #tu powinny byc wszyskie moje tickety, nie owned
-    @projects=current_user.owned_projects.all
-    #@projects << curren_user.member_projects.all
+    @projects=current_user.member_projects.all
+    @tickets=[]
+    Assignment.where(:user_id => current_user.id).each {|a| @tickets<< Ticket.find(a.ticket_id)}
     @ticket_index=true
   end
   
