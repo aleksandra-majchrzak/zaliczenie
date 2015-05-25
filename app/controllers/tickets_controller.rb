@@ -5,12 +5,15 @@ class TicketsController < ApplicationController
   def index
       @project= Project.find(params[:project_id])
       @tickets=@project.tickets.all
+      @ticket_index=true
   end
   
   def new
     @project=Project.find(params[:project_id])
     @ticket=@project.tickets.build
     @status_ar={'active'=> :active, 'closed'=> :closed, 'cancelled'=> :cancelled}
+    @ticket_index=true
+    @to_edit_ticket=false
   end
   
   def create
@@ -28,6 +31,8 @@ class TicketsController < ApplicationController
   def show
     @project= Project.find(params[:project_id])
     @ticket=@project.tickets.find(params[:id])
+    @ticket_index=true
+    @to_edit_ticket=false
   end
   
   def destroy
@@ -42,6 +47,8 @@ class TicketsController < ApplicationController
     @project= Project.find(params[:project_id])
     @ticket=@project.tickets.find(params[:id])
     @status_ar={'active'=> :active, 'closed'=> :closed, 'cancelled'=> :cancelled}
+    @ticket_index=true
+    @to_edit_ticket=true
   end
   
   def update
@@ -59,6 +66,7 @@ class TicketsController < ApplicationController
     #tu powinny byc wszyskie moje tickety, nie owned
     @projects=current_user.owned_projects.all
     #@projects << curren_user.member_projects.all
+    @ticket_index=true
   end
   
   private

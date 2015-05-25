@@ -1,0 +1,33 @@
+%ol.breadcrumb
+  %li
+    = link_to "Home", root_path
+  - if @project != nil
+    %li
+      = link_to "Projects", projects_path
+    -if @to_edit
+      %li
+        = link_to @project.name, project_path
+      %li.active Edit                        
+    -else
+      -if @ticket_index !=nil
+        %li
+          = link_to @project.name, project_path(@project)
+        -if @ticket !=nil
+          %li
+            =link_to "Tickets", project_tickets_path(@project)
+          -if @to_edit_ticket
+            %li
+              =link_to @ticket.name, project_ticket_path
+            %li.active Edit
+          -else
+            %li.active #{@ticket.name}
+        -else
+          %li.active Tickets
+      -else
+        %li.active #{@project.name}
+  -else
+    -if @project_index != nil
+      %li.active Projects
+    -else
+      -if @ticket_index !=nil
+        %li.active My tickets

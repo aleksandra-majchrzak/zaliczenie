@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   def index
     @owned_projects=current_user.owned_projects
     @member_projects=current_user.member_projects
+    @project_index=true
   end
   
   def new
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
-    params.require(:project).permit(:name, :description, :member, :member_ids)
+    params.require(:project).permit(:name, :description, :member_ids)
   end
   
 end
