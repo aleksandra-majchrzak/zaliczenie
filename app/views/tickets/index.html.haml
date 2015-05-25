@@ -1,8 +1,10 @@
 =render "layouts/breadcrumb"
 %h1 My tickets for project #{@project.name}
   
-.container-fluid
-  .row
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Actions
+  %tbody
     =render 'tickets_list'
-%br/
-= link_to "Back", :back

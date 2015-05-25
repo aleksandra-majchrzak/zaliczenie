@@ -1,11 +1,12 @@
 =render "layouts/breadcrumb"
 %h1 My all tickets
-  
-.container-fluid
-  .row
-    -@projects.each do |project|
-      -@project=project
-      -@tickets=project.tickets
-      - project.tickets.each do |ticket|
-        =render 'tickets_list'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Actions
+  %tbody
+    =render 'tickets_list'
+ 
 %br/

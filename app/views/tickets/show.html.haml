@@ -29,6 +29,3 @@
       =image_tag @ticket.single_attachment.url()
     -else
       =link_to @ticket.inner_attachment_name, @ticket.single_attachment.url()
-  
-    
-= link_to "Back", :back
