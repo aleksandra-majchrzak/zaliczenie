@@ -9,14 +9,17 @@
     -@project.members.each {|m| members.store(m.email, m.id)}
     = f.association :users, collection: members, as: :check_boxes
   .col-xs-12.col-sm-9.col-md-6 
+    =f.input :single_attachment, label: 'Attachment'
     -if @ticket.single_attachment.present?
-      -if @ticket.single_attachment_content_type =~ /image\/*/
-        =image_tag @ticket.single_attachment.url() #tu powinna byc jakas inna funkcja
-      -else
-        =link_to @ticket.inner_attachment_name, @ticket.single_attachment.url()
+      .span2
+        -if @ticket.single_attachment_content_type =~ /image\/*/
+          %a.thumbnail{:href => @ticket.single_attachment.url()}
+            %img{:alt => @ticket.inner_attachment_name, :src => @ticket.single_attachment.url()}/
+        -else
+          %a.thumbnail{:href => @ticket.single_attachment.url()}
+            %img{:alt => @ticket.inner_attachment_name, :src => asset_path("document.png")}/ 
 
       =f.input :remove_single_attachment, as: :boolean
-    /-else
-    =f.input :single_attachment, label: 'Attachment'
+
     =f.input :inner_attachment_name, label: 'Attachment name'
     =f.button :submit

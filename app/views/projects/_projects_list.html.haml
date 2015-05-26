@@ -1,6 +1,6 @@
 -@projects.reverse.each do |project|
   .col-xs-12.col-sm-6.col-md-4
-    %a.thumbnail{:href => project_path(project)} 
+    %a.thumbnail.project-thumbnail{:href => project_path(project)} 
       %ul.pull-right.c-controls
         %ul.dropdown
           %a{"data-placement" => "top", "data-toggle" => "dropdown", :type => "button"}
