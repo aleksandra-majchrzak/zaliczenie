@@ -1,0 +1,7 @@
+.span2
+  -if @ticket.single_attachment_content_type =~ /image\/*/
+    %a.thumbnail{:href => @ticket.single_attachment.url()}
+      %img{:alt => @ticket.inner_attachment_name, :src => @ticket.single_attachment.url()}/
+  -else
+    %a.thumbnail{:href => @ticket.single_attachment.url()}
+      %img{:alt => @ticket.inner_attachment_name, :src => asset_path("document.png")}/ 

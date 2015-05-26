@@ -7,12 +7,12 @@
       = @ticket.description
     %br
     %br
-    <!--%strong Single_attachment: -->
+    %strong Attachment:
     -if @ticket.single_attachment.present?
-      -if @ticket.single_attachment_content_type =~ /image\/*/
-        =image_tag @ticket.single_attachment.url()
-      -else
-        =link_to @ticket.inner_attachment_name, @ticket.single_attachment.url()
+      =render "attachment_display"
+      = @ticket.inner_attachment_name
+    -else
+      No attachment added.
   .col-xs-12.col-sm-6.col-md-4   
     %p
       %h4 priotity:
