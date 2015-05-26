@@ -1,31 +1,39 @@
 =render "layouts/breadcrumb"
-%div{:style => "text-align: center"}
-  %p
-    %h2= @ticket.name
-  %p
-    = @ticket.description
+.row
+  .col-xs-12.col-sm-6.col-md-4
+    %p
+      %h2= @ticket.name
+    %p
+      = @ticket.description
     %br
-  %p
-    %h4 priotity: #{@ticket.priority}
-    %h4 status: #{@ticket.status}
+    %br
+    <!--%strong Single_attachment: -->
+    -if @ticket.single_attachment.present?
+      -if @ticket.single_attachment_content_type =~ /image\/*/
+        =image_tag @ticket.single_attachment.url()
+      -else
+        =link_to @ticket.inner_attachment_name, @ticket.single_attachment.url()
+  .col-xs-12.col-sm-6.col-md-4   
+    %p
+      %h4 priotity:
+      - for i in 1..@ticket.priority
+        star
+        %span.glyphicon.glyphicon-star
+        
+      %h4 status: #{@ticket.status}
+      -@ticket.users.each do |user|
+        =user.email
+  .col-xs-12.col-sm-6.col-md-4
   %p
   - if can? :update, @ticket
-    = link_to "Edit", edit_project_ticket_path(@project, @ticket)
+    = link_to "Edit", edit_project_ticket_path(@project, @ticket), :class => 'btn btn-mini btn-primary'
 
   - if can? :destroy, @ticket
     = link_to "Delete", project_ticket_path(@project, @ticket), |
     method: :delete,                         |
-    data: {confirm: 'Are you sure?'}
+    data: {confirm: 'Are you sure?'}, :class => 'btn btn-mini btn-danger'
     
-  %br
-  %p    
-    -@ticket.users.each do |user|
-      =user.email 
+  %br   
+
       
-  %br
-  <!--%strong Single_attachment: -->
-  -if @ticket.single_attachment.present?
-    -if @ticket.single_attachment_content_type =~ /image\/*/
-      =image_tag @ticket.single_attachment.url()
-    -else
-      =link_to @ticket.inner_attachment_name, @ticket.single_attachment.url()
+  
