@@ -1,5 +1,5 @@
 .thumbnail {
-  background: rgba(10,60,255,.4);
+  background: rgba(240,240,240,.4);
   border-radius: 3px;
   bottom: 0;
   display: block;
@@ -7,10 +7,10 @@
   position: absolute;
   right: 0;
   top: 0;
+  margin-left: 10px
 }
 
 #options-pencil{
-  color: rgba(255, 255, 255, 0.9);
   font-size: large
 }
 

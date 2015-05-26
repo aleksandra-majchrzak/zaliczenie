@@ -5,12 +5,16 @@
   
 .container-fluid
   .row
-    -@projects=@owned_projects
-    %div{:style => "text-align: center"}
-      My owned projects:
-    =render 'projects_list'
+    .panel.panel-primary.kanban-col
+      .panel-heading
+        My owned projects:
+      .panel-body{:id => "projects-panel"}
+        -@projects=@owned_projects
+        =render 'projects_list'
   .row
-    -@projects=@member_projects
-    %div{:style => "text-align: center"}
-      My member projects:
-    =render 'projects_list'
+    .panel.panel-primary.kanban-col
+      .panel-heading
+        My member projects:
+      .panel-body{:id => "projects-panel"}
+        -@projects=@member_projects         
+        =render 'projects_list'
