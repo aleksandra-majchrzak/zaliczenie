@@ -1,16 +1,21 @@
 -@projects.reverse.each do |project|
   .col-xs-12.col-sm-6.col-md-4
-    %h2= link_to project.name, project_path(project)
-    %h6.small 
-      written at: 
-      = project.created_at
-          
-    %tr
-      %td
-        - if can? :update, project
-          = link_to "Edit", edit_project_path(project)
-      %td{:style => "padding: 0 5px"}
-        - if can? :destroy, project
-          = link_to "Delete", project_path(project), |
-            method: :delete,                         |
-            data: {confirm: 'Are you sure?'}         |
+    %a.thumbnail{:href => project_path(project)} 
+      %ul.pull-right.c-controls
+        %ul.dropdown
+          %a{"data-placement" => "top", "data-toggle" => "dropdown", :type => "button"}
+            %i#options-pencil.glyphicon.glyphicon-pencil
+          %ul.dropdown-menu.dropdown-menu-right
+            %li
+              = link_to "Edit", edit_project_path(project)
+            %li.divider
+            %li
+              = link_to "Delete", project_path(project), |
+              method: :delete,                         |
+              data: {confirm: 'Are you sure?'}  
+
+      %h3#thumbnail-article-name  #{project.name}
+      %h6.small 
+        written at: 
+        = project.created_at
+      %br

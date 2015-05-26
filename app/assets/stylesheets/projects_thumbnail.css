@@ -1,0 +1,22 @@
+.thumbnail {
+  background: rgba(10,60,255,.4);
+  border-radius: 3px;
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#options-pencil{
+  color: rgba(255, 255, 255, 0.9);
+  font-size: large
+}
+
+#thumbnail-article-name{
+  font-weight: bold
+  
+}
+
+
