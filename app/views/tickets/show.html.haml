@@ -7,7 +7,7 @@
       = @ticket.description
     %br
     %br
-    %strong Attachment:
+    %h4 Attachment:
     -if @ticket.single_attachment.present?
       =render "attachment_display"
       = @ticket.inner_attachment_name
@@ -15,13 +15,27 @@
       No attachment added.
   .col-xs-12.col-sm-6.col-md-4   
     %p
-      %h4 priotity:
+      %h4 Priotity:
       - for i in 1..@ticket.priority
         %i#priority-star.fa.fa-star
         
-      %h4 status: #{@ticket.status}
+      %h4 Status: 
+      -if @ticket.status == 'active'
+        %h4.blue 
+          =@ticket.status
+      -else 
+        -if @ticket.status == 'cancelled'
+          %h4.yellow 
+            =@ticket.status
+        -else
+          %h4.green
+            =@ticket.status
+      %h4 Difficulty:
+      = @ticket.difficulty
+      %h4 Assigned coworkers:
       -@ticket.users.each do |user|
         =user.email
+        %br
   .col-xs-12.col-sm-6.col-md-4
   %p
   - if can? :update, @ticket
