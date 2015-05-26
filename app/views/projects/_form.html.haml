@@ -1,9 +1,10 @@
-= simple_form_for(@project, html: { class: 'form-horizontal' }) do |f|
-  = f.input :name, label: 'Project name'
-  = f.input :description, as: :text, label: 'Project description'
-  -if @project.id != nil
-    -members={}
-    -@project.members.each {|m| members.store(m.email, m.id)}
-    = f.association :members, collection: members, as: :check_boxes
+.col-md-6  
+  = simple_form_for(@project, html: { class: 'form-horizontal' }) do |f|
+    = f.input :name, label: 'Project name'
+    = f.input :description, as: :text, label: 'Project description'
+    -if @project.id != nil
+      -members={}
+      -@project.members.each {|m| members.store(m.email, m.id)}
+      = f.association :members, collection: members, as: :check_boxes
 
-  = f.button :submit
+    = f.button :submit
