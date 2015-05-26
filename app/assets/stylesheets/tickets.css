@@ -24,3 +24,19 @@
   color: yellow;
   font-weight: bold;
 }
+
+.panel-cancelled{
+  border-color: yellow !important;
+}
+.panel-cancelled > .panel-heading{
+  background-color: yellow !important;
+  border-color: yellow !important;
+}
+
+.panel-closed{
+  border-color: green !important;
+}
+.panel-closed > .panel-heading{
+  border-color: green !important;
+  background-color: green !important;
+}

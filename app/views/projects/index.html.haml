@@ -5,14 +5,14 @@
   
 .container-fluid
   .row
-    .panel.panel-primary.kanban-col
+    .panel.panel-primary
       .panel-heading
         My owned projects:
       .panel-body{:id => "projects-panel"}
         -@projects=@owned_projects
         =render 'projects_list'
   .row
-    .panel.panel-primary.kanban-col
+    .panel.panel-primary
       .panel-heading
         My member projects:
       .panel-body{:id => "projects-panel"}
