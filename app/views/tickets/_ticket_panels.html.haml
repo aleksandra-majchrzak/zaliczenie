@@ -14,10 +14,10 @@
               %th Actions
           %tbody
             =render 'tickets_list'
-  .col-xs-12.col-sm-6.col-md-4  
-    .panel.panel-primary.panel-cancelled
+  .col-xs-12.col-sm-6.col-md-4
+    .panel.panel-primary.panel-closed
       .panel-heading
-        My cancelled tickets
+        My closed tickets
       .panel-body
         -@tickets=allTickets.where(status: 1)
         %table.table.table-striped
@@ -27,10 +27,10 @@
               %th Actions
           %tbody
             =render 'tickets_list'
-  .col-xs-12.col-sm-6.col-md-4
-    .panel.panel-primary.panel-closed
+  .col-xs-12.col-sm-6.col-md-4  
+    .panel.panel-primary.panel-cancelled
       .panel-heading
-        My closed tickets
+        My cancelled tickets
       .panel-body
         -@tickets=allTickets.where(status: 2)
         %table.table.table-striped
@@ -40,3 +40,4 @@
               %th Actions
           %tbody
             =render 'tickets_list'
+  

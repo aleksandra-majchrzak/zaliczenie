@@ -21,16 +21,16 @@
 }
 
 .yellow{
-  color: yellow;
+  color: #FFCC00;
   font-weight: bold;
 }
 
 .panel-cancelled{
-  border-color: yellow !important;
+  border-color: #FFCC00 !important;
 }
 .panel-cancelled > .panel-heading{
-  background-color: yellow !important;
-  border-color: yellow !important;
+  background-color: #FFCC00 !important;
+  border-color: #FFCC00 !important;
 }
 
 .panel-closed{
