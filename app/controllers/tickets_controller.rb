@@ -64,8 +64,7 @@ class TicketsController < ApplicationController
   
   def list_all
     @projects=current_user.member_projects.all
-    @tickets=[]
-    Assignment.where(:user_id => current_user.id).each {|a| @tickets<< Ticket.find(a.ticket_id)}
+    @tickets=Ticket.joins("JOIN assignments ON assignments.ticket_id = tickets.id").where("assignments.user_id = ? ", current_user.id);
     @ticket_index=true
   end
   
