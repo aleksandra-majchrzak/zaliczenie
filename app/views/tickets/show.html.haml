@@ -12,7 +12,8 @@
       =render "attachment_display"
       = @ticket.inner_attachment_name
     -else
-      No attachment added.
+      %p
+        No attachment added.
   .col-xs-12.col-sm-6.col-md-4   
     %p
       %h4 Priotity:
@@ -34,7 +35,8 @@
       = @ticket.difficulty
       %h4 Assigned coworkers:
       -@ticket.users.each do |user|
-        =user.email
+        %p
+          =user.email
         %br
   .col-xs-12.col-sm-6.col-md-4
   %p
