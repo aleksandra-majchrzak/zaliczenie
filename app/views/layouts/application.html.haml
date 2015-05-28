@@ -28,14 +28,17 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   %body
-    = render 'layouts/header'   
-    .container
-      .row
-        .col-lg-12
-          = bootstrap_flash
-          = yield
-          = display_cookie_alert
-        / /span
+    %section
+      %img#welome{:alt => "", :src => asset_path("green-clock.jpg")}/
+    %section#aplication-main-section
+      = render 'layouts/header'    
+      .container   
+        .row
+          .col-lg-12
+            = bootstrap_flash
+            = yield
+            = display_cookie_alert
+          / /span
       / /row
     %footer.footer
       .container

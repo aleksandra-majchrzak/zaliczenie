@@ -18,3 +18,46 @@
  *= require gritter
  *= require font-awesome
  */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: left;
+}
+html {
+  display: block;
+}
+body{
+  display: block;
+}
+p {
+  color: white;
+}
+h1 {
+  font-family: 'Salsa';;
+  color: white;
+}
+h2 {
+  font-family: 'Salsa';;
+  color: white;
+}
+h3 {
+  font-family: 'Salsa';;
+  color: white;
+}
+h4 {
+  font-family: 'Salsa';;
+  color: white;
+}
+h5 {
+  font-family: 'Salsa';;
+  color: white;
+}
+h6 {
+  font-family: 'Salsa';;
+  color: white;
+}
+
