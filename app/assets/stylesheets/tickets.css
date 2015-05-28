@@ -25,18 +25,35 @@
   font-weight: bold;
 }
 
+.panel-active{
+  border-color: rgb(0,71,107) !important;
+  background: none;
+  color: white;
+}
+.panel-active > .panel-heading{
+  background-color: rgb(0,71,107) !important;
+  border-color: rgb(0,71,107) !important;
+  color: white;
+}
+
 .panel-cancelled{
   border-color: #FFCC00 !important;
+  background: none;
+  color: white;
 }
 .panel-cancelled > .panel-heading{
   background-color: #FFCC00 !important;
   border-color: #FFCC00 !important;
+  color: white;
 }
 
 .panel-closed{
   border-color: green !important;
+  background: none;
+  color: white;
 }
 .panel-closed > .panel-heading{
   border-color: green !important;
   background-color: green !important;
+  color: white;
 }
