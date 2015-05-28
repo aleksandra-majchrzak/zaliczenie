@@ -4,16 +4,16 @@
   
 .container-fluid
   .row
-    .panel.panel-primary
+    .panel.panel-default.project-panel
       .panel-heading
         My owned projects:
-      .panel-body{:id => "projects-panel"}
+      .panel-body
         -@projects=@owned_projects
         =render 'projects_list'
   .row
-    .panel.panel-primary
+    .panel.panel-default.project-panel
       .panel-heading
         My member projects:
-      .panel-body{:id => "projects-panel"}
+      .panel-body
         -@projects=@member_projects         
         =render 'projects_list'
