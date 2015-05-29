@@ -18,3 +18,15 @@ section{
   overflow: auto;
   z-index: 2;
 }
+
+#welcome-bar-section{
+  background: rgba(255,255,255, 0.2) center center;
+  color: black;
+  margin-top: 150px;
+  height: 250px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 40px;
+  font-family: 'Salsa';
+}
