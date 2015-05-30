@@ -27,7 +27,7 @@
 
 .panel-active{
   border-color: rgb(0,71,107) !important;
-  background: none;
+  background: rgba(150,150,150, 0.25);
   color: white;
 }
 .panel-active > .panel-heading{
@@ -38,7 +38,7 @@
 
 .panel-cancelled{
   border-color: #FFCC00 !important;
-  background: none;
+  background: rgba(150,150,150, 0.25);
   color: white;
 }
 .panel-cancelled > .panel-heading{
@@ -49,7 +49,7 @@
 
 .panel-closed{
   border-color: green !important;
-  background: none;
+  background: rgba(150,150,150, 0.25);
   color: white;
 }
 .panel-closed > .panel-heading{
