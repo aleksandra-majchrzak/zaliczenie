@@ -1,5 +1,5 @@
 .project-thumbnail {
-  background: rgba(255,255,255,.4);
+  background: rgba(240,240,240,.4);
   border-radius: 3px;
   bottom: 0;
   display: block;
@@ -15,7 +15,7 @@
 }
 
 #thumbnail-article-name{
-  font-weight: bold;
+  font-weight: bold 
 }
 
 .project-panel{
@@ -28,6 +28,6 @@
 }
 
 .project-panel > .panel-body{
-  background: rgba(150,150,150, 0.25); !important;
+  background: transparent !important;
 }
 

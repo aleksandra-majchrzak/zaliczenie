@@ -3,7 +3,7 @@
   .col-xs-12.col-sm-6.col-md-4          
     %tr
       %td
-        = link_to ticket.name, project_ticket_path(project, ticket), {:style => 'color: white; font-weight: bold;'}
+        = link_to ticket.name, project_ticket_path(project, ticket)
       %td
         - if can? :update, project
           = link_to "Edit", edit_project_ticket_path(project, ticket), :class => 'btn btn-mini btn-primary'
