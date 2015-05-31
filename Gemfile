@@ -54,5 +54,6 @@ group :development, :test do
   gem "gritter", "1.1.0"
   gem "font-awesome-rails"
   gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
 end
 
