@@ -46,8 +46,9 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     
     unless params[:new_member] == nil
-      new_user=User.where(:email => project_params[:member_ids]) 
-      unless @project.members.where(new_user.first.id) == nil
+      new_user=User.where(:email => project_params[:member_field]) 
+      
+      unless @project.members.where(:id => new_user.first.id).empty?
         flash.now[:error] = "This user has been already added to project."
         render 'show'
       else
@@ -65,7 +66,7 @@ class ProjectsController < ApplicationController
   
   private
   def project_params
-    params.require(:project).permit(:name, :description, :member_ids)
+    params.require(:project).permit(:name, :description, :member_field, :member_ids => [])
   end
   
 end
