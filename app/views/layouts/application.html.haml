@@ -28,7 +28,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   %body
-    %section#aplication-main-section
+    #aplication-main-section
       = render 'layouts/header'
       .container   
         .row
@@ -38,6 +38,7 @@
             = display_cookie_alert
           / /span
         / /row
+      .section#push  
     %footer.footer
       .container
         %p#footer-text

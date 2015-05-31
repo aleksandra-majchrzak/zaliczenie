@@ -1,10 +1,14 @@
+#push, .footer{
+  height: 50px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 50px;
   background-color: #f5f5f5;
+  z-index: 3;
 }
 
 #footer-text{
