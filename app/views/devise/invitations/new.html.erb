@@ -2,7 +2,8 @@
 <h2><%= t "devise.invitations.new.header" %></h2>
   
 <%= simple_form_for([@project]) do |f| %>
-<%= f.association :members, :url => autocomplete_user_email_project_projects_path(@project), :as => :autocomplete %>
+<%= hidden_field_tag :new_member, :id => "my_member_id" %>
+<%= f.association :members, :url => autocomplete_user_email_project_projects_path(@project), :as => :autocomplete%>
   <%= f.submit %>
 <%end%>
   

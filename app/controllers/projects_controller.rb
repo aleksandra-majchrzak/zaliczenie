@@ -44,11 +44,22 @@ class ProjectsController < ApplicationController
   
   def update
     @project = Project.find(params[:id])
-
-    if @project.update(project_params)
-      redirect_to @project
+    
+    unless params[:new_member] == nil
+      new_user=User.where(:email => project_params[:member_ids]) 
+      unless @project.members.where(new_user.first.id) == nil
+        flash.now[:error] = "This user has been already added to project."
+        render 'show'
+      else
+        @project.members << new_user
+        redirect_to @project
+      end
     else
-      render 'edit'
+      if @project.update(project_params)
+        redirect_to @project
+      else
+        render 'edit'
+      end
     end
   end
   
