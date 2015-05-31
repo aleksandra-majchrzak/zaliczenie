@@ -6,9 +6,18 @@
   %p
     = @project.description
     %br
+    
+  %section
+    %h3
+      Members:
+    %h4
+      -@project.members.each do |user|
+        =user.email
+  %br
+    
   %section.project-buttons
   - if can? :update, @project
     = link_to "Edit", edit_project_path(@project), :class => 'btn btn-mini btn-default'
     = link_to "Add ticket", new_project_ticket_path(@project), :class => 'btn btn-mini btn-default'  
     = link_to "Add members", new_user_invitation_path(:project => @project.id), :class => 'btn btn-mini btn-default'
-  = link_to "View tickets", project_tickets_path(@project), :class => 'btn btn-mini btn-default' 
+  = link_to "View tickets", project_tickets_path(@project), :class => 'btn btn-mini btn-default'

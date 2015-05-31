@@ -32,12 +32,13 @@
           %h4.green
             =@ticket.status
       %h4 Difficulty:
-      = @ticket.difficulty
+      %p
+        = @ticket.difficulty
       %h4 Assigned coworkers:
       -@ticket.users.each do |user|
         %p
           =user.email
-        %br
+      %br
   .col-xs-12.col-sm-6.col-md-4
   %p
   - if can? :update, @ticket
