@@ -53,5 +53,6 @@ group :development, :test do
   gem 'rails4-autocomplete'
   gem "gritter", "1.1.0"
   gem "font-awesome-rails"
+  gem 'rspec-rails', '~> 3.0'
 end
 
