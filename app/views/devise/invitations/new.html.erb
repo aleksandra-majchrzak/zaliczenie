@@ -1,4 +1,7 @@
-<h1><%= @project.name %></h1>
+<%= render "layouts/breadcrumb" %>
+
+<div class="col-md-6">
+  
 <h2><%= t "devise.invitations.new.header" %></h2>
   
 <%= simple_form_for([@project]) do |f| %>
@@ -9,7 +12,7 @@
   
 
 <h2><%= t "devise.invitations.new.header2" %></h2>
-
+  
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
   <%= devise_error_messages! %>
 
@@ -22,3 +25,4 @@
   
 <%= f.submit t("devise.invitations.new.submit_button") %>
 <% end %>
+  </div>
