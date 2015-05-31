@@ -1,8 +1,8 @@
 -allTickets=@tickets
-  
+%br
 .container-fluid
   .col-xs-12.col-sm-6.col-md-4  
-    .panel.panel-default.panel-active
+    .panel.panel-default.my-panel.panel-active
       .panel-heading
         My active tickets
       .panel-body
@@ -15,7 +15,7 @@
           %tbody
             =render 'tickets_list'
   .col-xs-12.col-sm-6.col-md-4
-    .panel.panel-default.panel-closed
+    .panel.panel-default.my-panel.panel-closed
       .panel-heading
         My closed tickets
       .panel-body
@@ -28,7 +28,7 @@
           %tbody
             =render 'tickets_list'
   .col-xs-12.col-sm-6.col-md-4  
-    .panel.panel-default.panel-cancelled
+    .panel.panel-default.my-panel.panel-cancelled
       .panel-heading
         My cancelled tickets
       .panel-body
