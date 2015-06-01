@@ -55,5 +55,6 @@ group :development, :test do
   gem "font-awesome-rails"
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 
