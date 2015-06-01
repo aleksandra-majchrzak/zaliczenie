@@ -83,24 +83,7 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-=end
-  
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
-      # Choose a test framework:
-      with.test_framework :rspec
-      #with.test_framework :minitest
-      #with.test_framework :minitest_4
-      #with.test_framework :test_unit
-
-      # Choose a library:
-      #with.library :active_record
-      #with.library :active_model
-      #with.library :action_controller
-      # Or, choose all of the above:
-      with.library :rails
-    end
-  end  
+=end  
 end
 
 
