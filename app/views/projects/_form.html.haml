@@ -1,7 +1,7 @@
 .col-md-6  
   = simple_form_for(@project, html: { class: 'form-horizontal' }) do |f|
-    = f.input :name, label: 'Project name'
-    = f.input :description, as: :text, label: 'Project description'
+    = f.input :name, label: 'Project name', :id => 'project_name'
+    = f.input :description, as: :text, label: 'Project description',:id => 'project_descripiton'
     -if @project.id != nil
       -members={}
       -@project.members.each {|m| members.store(m.email, m.id)}
