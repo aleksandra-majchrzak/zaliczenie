@@ -48,12 +48,18 @@ class ProjectsController < ApplicationController
     unless params[:new_member] == nil
       new_user=User.where(:email => project_params[:member_field]) 
       
-      unless @project.members.where(:id => new_user.first.id).empty?
-        flash.now[:error] = "This user has been already added to project."
+      if new_user.first ==nil
+        flash.now[:error] = "Selected uses is not in database. If you want, invite them!"
         render 'show'
       else
-        @project.members << new_user
-        redirect_to @project
+      
+        unless @project.members.where(:id => new_user.first.id).empty?
+          flash.now[:error] = "This user has been already added to project."
+          render 'show'
+        else
+          @project.members << new_user
+          redirect_to @project
+        end
       end
     else
       if @project.update(project_params)
