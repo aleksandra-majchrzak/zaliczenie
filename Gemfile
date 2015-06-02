@@ -58,5 +58,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "rspec"
   gem 'simplecov', :require => false
+  gem 'capybara'
 end
 
