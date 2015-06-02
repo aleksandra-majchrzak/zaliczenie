@@ -7,6 +7,7 @@ require 'shoulda/matchers'
 require 'devise'
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'database_cleaner'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -58,5 +59,18 @@ RSpec.configure do |config|
   end
   config.after :each do
     Warden.test_reset!
+  end
+  config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 end

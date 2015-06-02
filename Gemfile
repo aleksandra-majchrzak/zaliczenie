@@ -59,5 +59,6 @@ group :development, :test do
   gem "rspec"
   gem 'simplecov', :require => false
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
