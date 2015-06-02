@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe ProjectsController do
   before :each do
-    @project=create(:project)
+    @user=create(:owner)
+    sign_in @user
+    @project = @user.owned_projects.first
   end
   
   describe 'index' do
@@ -10,7 +12,7 @@ describe ProjectsController do
       get :index
       
       expect(response).to have_http_status(:success)
-      expect(assigns(:articles).length).to eq 1
+      expect(assigns(:projects).length).to eq 1
    end
   end
   
@@ -20,7 +22,7 @@ describe ProjectsController do
       
       expect(response).to have_http_status(:success)
       expect(assigns(:project)).not_to eq nil
-      expect(assigns(:project).title).to eq @project.title
+      expect(assigns(:project).name).to eq @project.name
    end
   end
 end 
